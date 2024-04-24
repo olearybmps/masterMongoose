@@ -62,12 +62,10 @@ const deleteNote = async (req, res) => {
     // 1. Get the id off the url
     // 2. Delete the record
     // 3. Send Response
-    const noteId = req.params.id;
-    // --------------------------------(1)
-    await Note.deleteOne({
-        id: noteId,
-    });
-    // --------------------------------(2)
+    const noteId = req.params.id; // --------------------------------(1)
+    await Note.deleteOne({ 
+        _id: noteId 
+    }); // --------------------------------(2)
     res.json({ success: 'Record has been deleted successfully' });
 };
 
